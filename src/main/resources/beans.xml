@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+      <bean id="person" class="com.tiance.springQs.Person">
+          <property name="axe" ref="axe"/>
+      </bean>
+      <bean id="axe" class="com.tiance.springQs.Axe"/>
+      <bean id="win" class="javax.swing.JFrame"/>
+      <bean id="date" class="java.util.Date"/>
+      <bean id="chinese" class="com.tiance.setter.Chinese">
+          <property name="axe" ref="steeAxe"/>
+      </bean>
+      <bean id="stoneAxe" class="com.tiance.setter.StoneAxe"/>
+      <bean id="steeAxe"  class="com.tiance.setter.SteeAxe"/>
+      <bean id="steeAxe1"  class="com.tiance.constructor.SteeAxe"/>
+      <bean id="xiaoming" class="com.tiance.constructor.Xiaoming">
+          <constructor-arg ref="steeAxe1"/>
+      </bean>
+
+      <bean id="person1" class="com.tiance.lazyinit.Person"  lazy-init="true">
+          <property name="test" value="blt"/>
+      </bean>
+
+      <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+          <property name="basenames">
+              <list>
+                  <value>message</value>
+              </list>
+          </property>
+      </bean>
+
+</beans>
